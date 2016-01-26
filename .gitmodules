@@ -1,0 +1,3 @@
+[submodule "src/toxcore"]
+	path = src/toxcore
+	url = https://github.com/irungentoo/toxcore.git
