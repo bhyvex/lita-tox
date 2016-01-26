@@ -6,6 +6,13 @@ NAME = 'tox'
 
 LIBTOXCORE = 'toxcore'
 
+ROOT = File.absolute_path File.join __FILE__, '../../..'
+TMP = Dir.mktmpdir
+
+`cd #{File.join ROOT, 'src', LIBTOXCORE} && ./autogen.sh && ./configure --prefix=#{TMP} && make install` and
+
+dir_config LIBTOXCORE, File.join(TMP, 'include'), File.join(TMP, 'lib') and
+
 have_header 'time.h' and
 have_header 'tox/tox.h' and
 have_header 'tox/tox_old.h' and
